@@ -10,8 +10,8 @@ import subprocess
 def confirmclick():
     subprocess.call("clear", shell=True)
     sleep(2)
-    subprocess.call("./packageinstaller.sh")
     window.destroy()
+    subprocess.call("./packageinstaller.sh")
 def declineclick():
     window.destroy()
 
