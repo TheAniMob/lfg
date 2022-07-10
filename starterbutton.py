@@ -1,4 +1,5 @@
 from fileinput import filename
+from re import M
 from time import sleep
 from tkinter import *
 import wget
@@ -7,7 +8,7 @@ import subprocess
 def confirmclick():
     url = 'https://code.jquery.com/jquery-3.6.0.min.js'
     wget.download(url)
-    webbrowser.open_new_tab('google.com')
+    webbrowser.open_new_tab("google.com")
     sleep(1)
     window.destroy()
 
