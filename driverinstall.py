@@ -2,6 +2,7 @@ from curses import window
 from fileinput import filename
 from time import sleep
 from tkinter import *
+from click import confirm
 import wget
 import webbrowser
 import subprocess
@@ -12,7 +13,6 @@ def confirmclick():
     subprocess.call("./driverinstall.sh")
 def declineclick():
     window.destroy()
-
 
 window = Tk()
 window.geometry("500x300")
