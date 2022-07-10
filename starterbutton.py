@@ -1,22 +1,28 @@
+from curses import window
 from fileinput import filename
-from re import M
+from os import name
 from time import sleep
 from tkinter import *
+from turtle import pos
 import wget
 import webbrowser
 import subprocess
 def confirmclick():
-    url = 'https://code.jquery.com/jquery-3.6.0.min.js'
-    wget.download(url)
-    webbrowser.open_new_tab("google.com")
-    sleep(1)
+    subprocess.call("clear", shell=True)
+    sleep(2)
+    subprocess.call("./packageinstaller.sh")
+    window.destroy()
+def declineclick():
     window.destroy()
 
+
 window = Tk()
-confirmbutton = Button(window,text='Click Me To Run the Script')
-confirmbutton.config(command=confirmclick)
+window.geometry("500x300")
+window.title("Are You Sure You Would Like To Run This Script?")
+confirmbutton = Button(window,text='Yes')
+confirmbutton.config(command=confirmclick,activebackground="#00b33c",font=('Helvetica bold', 30))
 confirmbutton.pack()
+declinebutton = Button(window,text='No')
+declinebutton.config(command=declineclick,activebackground="#e60000",font=('Helvetica bold', 30))
+declinebutton.pack()
 window.mainloop()
-subprocess.call("clear", shell=True)
-sleep(5)
-subprocess.call("./test.sh")
